@@ -2,21 +2,6 @@
 #include "scheduler.h"
 #include "memory.h"
 
-#define MAX_PROCESSES 100
-
-typedef enum {
-    PROCESS_RUNNING,
-    PROCESS_WAITING,
-    PROCESS_TERMINATED
-} ProcessState;
-
-typedef struct {
-    int pid;
-    ProcessState state;
-    void (*entry_point)(void);
-    int priority;
-} Process;
-
 Process process_table[MAX_PROCESSES];
 int process_count = 0;
 
